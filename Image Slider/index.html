@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+</head>
+<body style="text-align: center;">
+    <img id="image" src="/Image Slider/img/1.jpg" alt="default" width="500px" height="500px"/><br><br>
+    <button onclick="next()">Next</button>
+    <button onclick="previous()">Previous</button>
+
+    <script>
+        
+        var images = ["/Image Slider/img/1.jpg",
+                    "/Image Slider/img/2.jpg",
+                    "/Image Slider/img/3.jpg",
+                    "/Image Slider/img/4.jpeg",
+                    "/Image Slider/img/5.jpg"];
+        
+        var currentIndex =  0;
+
+        function next(){
+            if(currentIndex >= images.length-1){
+                    currentIndex = 0;
+            }else{
+                ++currentIndex;
+            }
+            document.getElementById("image").src = images[currentIndex];        
+        }
+
+        function previous(){
+            console.log(currentIndex);
+            if(currentIndex == 0){
+                currentIndex = images.length-1;
+            }else{
+                --currentIndex;
+            }
+            document.getElementById("image").src = images[currentIndex]; 
+        }
+
+
+    </script>
+</body>
+</html>

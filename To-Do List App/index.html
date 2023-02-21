@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List App</title>
+
+    <style>
+        table, th, td {
+          border:1px solid black;
+          margin-left: auto;
+          margin-right: auto;
+          border-collapse: collapse;
+          padding: 10px;
+        }
+    </style>
+
+</head>
+<body  style="text-align: center;">
+    
+    <input type="text" name="task" id="task" />
+    <button onclick="addTask()">Add Task</button><br><br>
+    
+
+    <table id="myTable">
+        <tr>
+            <th>To Do Tasks</th>
+            <th>Actions</th>
+        </tr> 
+
+    </table>
+
+    <script>
+        function addTask(){
+            
+            var task = document.getElementById("task").value;
+            if(task){
+                var table = document.getElementById("myTable");
+
+                const newTr = document.createElement("tr");
+                const newTd = document.createElement("td");
+                newTd.innerText = task;
+                const removeButton = document.createElement("button");
+                removeButton.innerText = "Remove";
+                removeButton.setAttribute("onclick","removeTask(this)")
+                removeButton.setAttribute("style","margin:10px;")
+                newTr.appendChild(newTd);
+                newTr.appendChild(removeButton);         
+                table.appendChild(newTr);
+            }
+        
+        }
+
+        function removeTask(x){
+            var table = document.getElementById("myTable");
+            table.deleteRow(x.parentNode.rowIndex);
+        }
+    </script>
+
+</body>
+</html>
